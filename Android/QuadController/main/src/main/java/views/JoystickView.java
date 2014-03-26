@@ -133,7 +133,7 @@ public class JoystickView extends View {
         centerY = (getHeight()) / 2;
 
         //wrapping box
-        canvas.drawRect(0,0,canvas.getWidth(), canvas.getHeight(), box);
+        //canvas.drawRect(0,0,canvas.getWidth(), canvas.getHeight(), box);
 
         // painting the main circle
         canvas.drawCircle((int) centerX, (int) centerY, joystickRadius,
