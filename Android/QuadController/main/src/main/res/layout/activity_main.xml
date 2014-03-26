@@ -12,7 +12,8 @@
         android:id="@+id/jc1View"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true" />
 
     <view
         android:layout_width="wrap_content"
@@ -25,16 +26,17 @@
         android:layout_marginRight="40dp"
         android:max="1024"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/powerDisplay" />
+        android:layout_below="@+id/powerDisplay"
+        android:indeterminate="false" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="0"
+        android:text="P:0"
         android:id="@+id/powerDisplay"
         android:singleLine="true"
-        android:textColor="#039af1"
+        android:textColor="@color/gray"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/powerBarView"
         android:layout_alignStart="@+id/powerBarView" />
@@ -42,37 +44,12 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentTop="true"
         android:layout_toRightOf="@id/jc1View"
         android:layout_toLeftOf="@+id/powerBarView"
         android:paddingRight="20dp"
-        android:id="@+id/relativeLayout">
-
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="AP"
-            android:id="@+id/aAp"
-            android:checked="false"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textOff="AP off"
-            android:textOn="AP on" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/apHeight"
-            android:hint="Height in cm"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/aAp"
-            android:layout_alignBottom="@+id/aAp"
-            android:textColor="#3994b6"
-            android:layout_alignRight="@+id/aEngine"
-            android:layout_alignEnd="@+id/aEngine" />
+        android:id="@+id/relativeLayout"
+        android:layout_below="@+id/powerDisplay"
+        android:layout_alignParentBottom="true">
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -90,9 +67,9 @@
             android:textOff="Engine Off"
             android:textOn="Engine On"
             android:checked="false"
+            android:layout_below="@+id/apHeight"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/aAp" />
+            android:layout_alignParentEnd="true" />
 
         <ToggleButton
             android:layout_width="wrap_content"
@@ -102,10 +79,61 @@
             android:checked="false"
             android:textOff="AL Off"
             android:textOn="AL on"
-            android:layout_below="@+id/aAp"
+            android:layout_alignTop="@+id/aEngine"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AP"
+            android:id="@+id/aAp"
+            android:checked="false"
+            android:textOff="AP off"
+            android:textOn="AP on"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/apHeight"
+            android:hint="Height in cm"
+            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/aAp"
+            android:textColor="#3994b6"
+            android:layout_alignRight="@+id/aEngine"
+            android:layout_alignEnd="@+id/aEngine"
+            android:layout_toRightOf="@+id/aAp" />
+
     </RelativeLayout>
+
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/yawView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/relativeLayout"
+        android:indeterminate="false"
+        android:max="2024"
+        android:progressDrawable="@drawable/gray_line"
+        android:progress="1024" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Z:0"
+        android:id="@+id/yawDisplay"
+        android:layout_above="@+id/yawView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/gray" />
 
 </RelativeLayout>

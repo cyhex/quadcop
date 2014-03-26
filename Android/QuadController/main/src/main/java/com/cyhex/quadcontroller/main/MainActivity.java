@@ -17,6 +17,8 @@ public class MainActivity extends ActionBarActivity {
     private JoystickView jc1;
     private VerticalSeekBar powerBar;
     private TextView powerDisplay;
+    private SeekBar yawBar;
+    private TextView yawDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +29,11 @@ public class MainActivity extends ActionBarActivity {
 
         powerBar = (VerticalSeekBar) findViewById(R.id.powerBarView);
         powerDisplay = (TextView) findViewById(R.id.powerDisplay);
-        powerDisplay.setText("p:" + Integer.toString(powerBar.getProgress()));
 
         powerBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                powerDisplay.setText("p:" + Integer.toString(i));
+                powerDisplay.setText("P:" + Integer.toString(i));
             }
 
             @Override
@@ -40,6 +41,27 @@ public class MainActivity extends ActionBarActivity {
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
+        yawBar = (SeekBar) findViewById(R.id.yawView);
+        yawDisplay = (TextView) findViewById(R.id.yawDisplay);
+
+        yawBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                yawDisplay.setText("Z:" + Integer.toString(i-1024));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                yawBar.setProgress(1024);
             }
         });
 
