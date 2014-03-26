@@ -46,10 +46,10 @@
         android:layout_height="fill_parent"
         android:layout_toRightOf="@id/jc1View"
         android:layout_toLeftOf="@+id/powerBarView"
-        android:paddingRight="20dp"
         android:id="@+id/relativeLayout"
-        android:layout_below="@+id/powerDisplay"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentTop="true">
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -57,7 +57,9 @@
             android:layout_height="wrap_content"
             android:text="Set Ax."
             android:id="@+id/aSetAx"
-            android:layout_alignParentBottom="true" />
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <ToggleButton
             android:layout_width="wrap_content"
@@ -67,9 +69,11 @@
             android:textOff="Engine Off"
             android:textOn="Engine On"
             android:checked="false"
-            android:layout_below="@+id/apHeight"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/aLand"
+            android:layout_alignStart="@+id/aLand"
+            android:layout_alignRight="@+id/toggleButton"
+            android:layout_alignEnd="@+id/toggleButton" />
 
         <ToggleButton
             android:layout_width="wrap_content"
@@ -77,20 +81,20 @@
             android:text="Auto Land"
             android:id="@+id/aLand"
             android:checked="false"
-            android:textOff="AL Off"
+            android:textOff="AL off"
             android:textOn="AL on"
-            android:layout_alignTop="@+id/aEngine"
+            android:layout_below="@+id/aAp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <ToggleButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="AP"
+            android:text="AH"
             android:id="@+id/aAp"
             android:checked="false"
-            android:textOff="AP off"
-            android:textOn="AP on"
+            android:textOff="AH off"
+            android:textOn="AH on"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -105,9 +109,35 @@
             android:layout_alignParentTop="true"
             android:layout_alignBottom="@+id/aAp"
             android:textColor="#3994b6"
-            android:layout_alignRight="@+id/aEngine"
-            android:layout_alignEnd="@+id/aEngine"
-            android:layout_toRightOf="@+id/aAp" />
+            android:layout_alignRight="@+id/toggleButton"
+            android:layout_alignEnd="@+id/toggleButton"
+            android:text="50"
+            android:layout_alignLeft="@+id/toggleButton"
+            android:layout_alignStart="@+id/toggleButton" />
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="gyro"
+            android:id="@+id/toggleButton"
+            android:checked="false"
+            android:textOff="Gyro off"
+            android:textOn="Gyro on"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flip"
+            android:id="@+id/button"
+            android:layout_alignTop="@+id/aLand"
+            android:layout_alignLeft="@+id/toggleButton"
+            android:layout_alignStart="@+id/toggleButton"
+            android:layout_alignRight="@+id/apHeight"
+            android:layout_alignEnd="@+id/apHeight" />
 
     </RelativeLayout>
 
