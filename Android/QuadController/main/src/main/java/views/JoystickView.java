@@ -32,6 +32,7 @@ public class JoystickView extends View {
     private Paint button;
     private Paint horizontalLine;
     private Paint verticalLine;
+    private Paint vectorLine;
     private Paint posXY;
     private Paint box;
 
@@ -62,10 +63,10 @@ public class JoystickView extends View {
 
         mainCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
         mainCircle.setColor(Color.DKGRAY);
-        mainCircle.setStyle(Paint.Style.FILL_AND_STROKE);
+        mainCircle.setStyle(Paint.Style.STROKE);
 
         secondaryCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
-        secondaryCircle.setColor(Color.GREEN);
+        secondaryCircle.setColor(Color.DKGRAY);
         secondaryCircle.setStyle(Paint.Style.STROKE);
 
         verticalLine = new Paint();
@@ -80,11 +81,14 @@ public class JoystickView extends View {
         button.setColor(Color.RED);
         button.setStyle(Paint.Style.FILL);
 
+        vectorLine = new Paint();
+        vectorLine.setStrokeWidth(2);
+        vectorLine.setColor(Color.RED);
 
         posXY = new Paint();
         posXY.setStyle(Paint.Style.STROKE);
         posXY.setColor(Color.GRAY);
-        posXY.setTextSize(24);
+        posXY.setTextSize(32);
         posXY.setAntiAlias(true);
     }
 
@@ -136,25 +140,24 @@ public class JoystickView extends View {
         //canvas.drawRect(0,0,canvas.getWidth(), canvas.getHeight(), box);
 
         // painting the main circle
-        canvas.drawCircle((int) centerX, (int) centerY, joystickRadius,
-                mainCircle);
+        canvas.drawCircle((int) centerX, (int) centerY, joystickRadius, mainCircle);
+
         // painting the secondary circle
-        canvas.drawCircle((int) centerX, (int) centerY, joystickRadius / 2,
-                secondaryCircle);
+        canvas.drawCircle((int) centerX, (int) centerY, joystickRadius / 2, secondaryCircle);
+
         // paint lines
-        canvas.drawLine((float) centerX, (float) centerY, (float) centerX,
-                (float) (centerY - joystickRadius), verticalLine);
-        canvas.drawLine((float) (centerX - joystickRadius), (float) centerY,
-                (float) (centerX + joystickRadius), (float) centerY,
-                horizontalLine);
-        canvas.drawLine((float) centerX, (float) (centerY + joystickRadius),
-                (float) centerX, (float) centerY, horizontalLine);
+        canvas.drawLine((float) centerX, (float) centerY + joystickRadius , (float) centerX, (float) (centerY - joystickRadius), horizontalLine);
+
+        canvas.drawLine((float) (centerX - joystickRadius), (float) centerY, (float) (centerX + joystickRadius), (float) centerY, horizontalLine);
+
+        // vector line
+        canvas.drawLine((float) centerX, (float) centerY, xPosition, yPosition, vectorLine);
 
         // painting the move button
         canvas.drawCircle(xPosition, yPosition, buttonRadius, button);
 
         // posXY text
-        canvas.drawText("X:" + getXpos() + " Y:" + getYpos(), 5, 25, posXY);
+        canvas.drawText("X:" + getXpos() + " Y:" + getYpos() + " a:" + getAngle() + "°", 5, 25, posXY);
     }
 
     @Override
