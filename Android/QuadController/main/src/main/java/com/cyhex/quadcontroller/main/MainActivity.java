@@ -1,39 +1,49 @@
 package com.cyhex.quadcontroller.main;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
-import com.cyhex.quadcontroller.main.views.JoystickView;
+import views.JoystickView;
+import views.VerticalSeekBar;
 
 public class MainActivity extends ActionBarActivity {
 
-    private JoystickView joystick;
+    private JoystickView jc1;
+    private VerticalSeekBar powerBar;
+    private TextView powerDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        joystick = (JoystickView) findViewById(R.id.joyView);
-        joystick.setOnJoystickMoveListener( new JoystickView.OnJoystickMoveListener() {
+        jc1 = (JoystickView) findViewById(R.id.jc1View);
+
+        powerBar = (VerticalSeekBar) findViewById(R.id.powerBarView);
+        powerDisplay = (TextView) findViewById(R.id.powerDisplay);
+        powerDisplay.setText("p:" + Integer.toString(powerBar.getProgress()));
+
+        powerBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onValueChanged(int angle, int power, int direction) {
-                Log.i("angle: ", Integer.toString(angle));
-                Log.i("power: ", Integer.toString(power));
-                Log.i("direction: ", Integer.toString(direction));
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                powerDisplay.setText("p:" + Integer.toString(i));
             }
 
             @Override
-            public void onValueChanged(int angle, int power, int direction, int x, int y) {
-                Log.i("y: ", Integer.toString(y));
-                Log.i("x: ", Integer.toString(x));
+            public void onStartTrackingTouch(SeekBar seekBar) {
             }
-        }, JoystickView.DEFAULT_LOOP_INTERVAL);
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,7 +52,6 @@ public class MainActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
 
 
     @Override
@@ -55,6 +64,10 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onPowerSet(){
+
     }
 
 }
