@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -88,12 +89,16 @@ public class JoystickView extends View {
         posXY = new Paint();
         posXY.setStyle(Paint.Style.STROKE);
         posXY.setColor(Color.GRAY);
-        posXY.setTextSize(32);
+        posXY.setTextSize(px2dp(12));
         posXY.setAntiAlias(true);
     }
 
     @Override
     protected void onFinishInflate() {
+    }
+
+    protected int px2dp(int px){
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, px, getResources().getDisplayMetrics());
     }
 
     @Override
@@ -157,7 +162,7 @@ public class JoystickView extends View {
         canvas.drawCircle(xPosition, yPosition, buttonRadius, button);
 
         // posXY text
-        canvas.drawText("X:" + getXpos() + " Y:" + getYpos() + " a:" + getAngle() + "°", 5, 25, posXY);
+        canvas.drawText("X:" + getXpos() + " Y:" + getYpos() + " a:" + getAngle() + "°", px2dp(5), px2dp(12), posXY);
     }
 
     @Override
