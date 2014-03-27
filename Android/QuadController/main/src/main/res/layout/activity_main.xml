@@ -8,7 +8,7 @@
     <view
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        class="views.JoystickView"
+        class="com.cyhex.quadcontroller.main.views.JoystickView"
         android:id="@+id/jc1View"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -18,7 +18,7 @@
     <view
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        class="views.VerticalSeekBar"
+        class="com.cyhex.quadcontroller.main.views.VerticalSeekBar"
         android:id="@+id/powerBarView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

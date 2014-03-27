@@ -1,4 +1,4 @@
-package views;
+package com.cyhex.quadcontroller.main.views;
 
 import android.content.Context;
 import android.graphics.Canvas;

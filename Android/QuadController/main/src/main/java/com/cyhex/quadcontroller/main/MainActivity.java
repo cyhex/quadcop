@@ -1,16 +1,14 @@
 package com.cyhex.quadcontroller.main;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import views.JoystickView;
-import views.VerticalSeekBar;
+import com.cyhex.quadcontroller.main.views.JoystickView;
+import com.cyhex.quadcontroller.main.views.VerticalSeekBar;
 
 public class MainActivity extends ActionBarActivity {
 
