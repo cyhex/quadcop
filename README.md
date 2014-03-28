@@ -1,20 +1,28 @@
 quadcop
 =======
 
-src links etc..
----------------
 
-arduino micro?
-http://arduino.cc/en/Main/ArduinoBoardMicro#.UyNQh9tx0xA
+Hardware list
+-------------
+
+2 x arduino nano 
+1 x MPU 6050 (Accelerometer, Gyro, Compass)
+1 x HC-SR04 (Unltrasonic rangefinder)
+1 x xxxx (Serial bluetooth breakout board)
+4 x brushless motors
+4 x ECS (brushless speed controllers)
+4 x plastic roters 
+1 x chasis with heatsink (for esc)
 
 
+Software
+--------
+
+Android based controller
+Arduino RT fligh controller (balance, AP, safe kill)
+Arduino non RT functions, com, rangefinders, H-logic 
 
 
-
-gyro: 
-
-MPU 6050
-https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050
 
 chasis
 ------
@@ -29,6 +37,9 @@ http://www.ebay.de/itm/X525-V3-QuadCopter-Glass-Friber-Folding-ARF-PNP-Set-KK-Fl
 - http://www.ebay.de/itm/New-X525-V3-QuadCopter-MWC-V2-5-Flight-Controller-Glass-Friber-Folding-Heli-Kit-/261327396928?pt=Wissenschaftliche_Ger%C3%A4te&hash=item3cd853a040
     
 
+
+Places to steal ideas from
+--------------------------
 
 http://thomaspfeifer.net/quadrocopter_selbstbau_avr.htm
 
