@@ -18,7 +18,7 @@ Hardware list
 Software
 --------
 
-    Android based controller
+    Android based controller see: https://github.com/cyhex/quadcop/tree/master/Android/QuadController
     Arduino RT fligh controller (balance, AP, safe kill)
     Arduino non RT functions, com, rangefinders, H-logic 
 
