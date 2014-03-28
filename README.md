@@ -5,22 +5,22 @@ quadcop
 Hardware list
 -------------
 
-2 x arduino nano 
-1 x MPU 6050 (Accelerometer, Gyro, Compass)
-1 x HC-SR04 (Unltrasonic rangefinder)
-1 x xxxx (Serial bluetooth breakout board)
-4 x brushless motors
-4 x ECS (brushless speed controllers)
-4 x plastic roters 
-1 x chasis with heatsink (for esc)
+    2 x arduino nano 
+    1 x MPU 6050 (Accelerometer, Gyro, Compass)
+    1 x HC-SR04 (Unltrasonic rangefinder)
+    1 x xxxx (Serial bluetooth breakout board)
+    4 x brushless motors
+    4 x ECS (brushless speed controllers)
+    4 x plastic roters 
+    1 x chasis with heatsink (for esc)
 
 
 Software
 --------
 
-Android based controller
-Arduino RT fligh controller (balance, AP, safe kill)
-Arduino non RT functions, com, rangefinders, H-logic 
+    Android based controller
+    Arduino RT fligh controller (balance, AP, safe kill)
+    Arduino non RT functions, com, rangefinders, H-logic 
 
 
 
