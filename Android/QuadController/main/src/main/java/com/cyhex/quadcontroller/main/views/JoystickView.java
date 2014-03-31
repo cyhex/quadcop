@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -163,6 +164,14 @@ public class JoystickView extends View {
 
         // posXY text
         canvas.drawText("X:" + getXpos() + " Y:" + getYpos() + " a:" + getAngle() + "°", px2dp(5), px2dp(12), posXY);
+    }
+
+    public void updateData(int x, int y){
+        y *= -1;
+        x *= -1;
+        xPosition = (int) (x * (1024/180) + centerX);
+        yPosition = (int) (y * (1024/180) + centerY);
+        invalidate();
     }
 
     @Override
