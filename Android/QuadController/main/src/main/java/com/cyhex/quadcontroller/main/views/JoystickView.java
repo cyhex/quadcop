@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -32,10 +31,6 @@ public class JoystickView extends View {
     private int joystickRadius;
     private int buttonRadius;
     private int lastAngle = 0;
-
-    public JoystickView(Context context) {
-        super(context);
-    }
 
     public JoystickView(Context context, AttributeSet attrs) {
         super(context, attrs);

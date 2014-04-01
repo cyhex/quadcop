@@ -73,7 +73,7 @@ public class MainActivity extends OrientationActivity{
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 setOrientationCenter();
-                if(b==false){
+                if(!b){
                     jc1.updateData(0,0);
                 }
             }
