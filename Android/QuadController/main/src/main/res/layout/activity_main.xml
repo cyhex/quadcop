@@ -73,8 +73,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/aLand"
             android:layout_alignStart="@+id/aLand"
-            android:layout_alignRight="@+id/toggleButton"
-            android:layout_alignEnd="@+id/toggleButton" />
+            android:layout_alignRight="@+id/aGyro"
+            android:layout_alignEnd="@+id/aGyro" />
 
         <ToggleButton
             android:layout_width="wrap_content"
@@ -110,17 +110,17 @@
             android:layout_alignParentTop="true"
             android:layout_alignBottom="@+id/aAp"
             android:textColor="#3994b6"
-            android:layout_alignRight="@+id/toggleButton"
-            android:layout_alignEnd="@+id/toggleButton"
+            android:layout_alignRight="@+id/aGyro"
+            android:layout_alignEnd="@+id/aGyro"
             android:text="50"
-            android:layout_alignLeft="@+id/toggleButton"
-            android:layout_alignStart="@+id/toggleButton" />
+            android:layout_alignLeft="@+id/aGyro"
+            android:layout_alignStart="@+id/aGyro" />
 
         <ToggleButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="gyro"
-            android:id="@+id/toggleButton"
+            android:id="@+id/aGyro"
             android:checked="false"
             android:textOff="Gyro off"
             android:textOn="Gyro on"
@@ -135,8 +135,8 @@
             android:text="Flip"
             android:id="@+id/button"
             android:layout_alignTop="@+id/aLand"
-            android:layout_alignLeft="@+id/toggleButton"
-            android:layout_alignStart="@+id/toggleButton"
+            android:layout_alignLeft="@+id/aGyro"
+            android:layout_alignStart="@+id/aGyro"
             android:layout_alignRight="@+id/apHeight"
             android:layout_alignEnd="@+id/apHeight" />
 

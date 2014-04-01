@@ -1,11 +1,11 @@
 package com.cyhex.quadcontroller.main;
 
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.cyhex.quadcontroller.main.views.JoystickView;
 import com.cyhex.quadcontroller.main.views.VerticalSeekBar;
@@ -16,7 +16,6 @@ public class MainActivity extends OrientationActivity{
     private TextView powerDisplay;
     private SeekBar yawBar;
     private TextView yawDisplay;
-    private SensorManager msManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +63,7 @@ public class MainActivity extends OrientationActivity{
             }
         });
 
-        msManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        gyroButton = (ToggleButton) findViewById(R.id.aGyro);
 
     }
 
