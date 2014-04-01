@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -159,19 +160,19 @@ public class JoystickView extends View {
 
     /**
      * update joystick position
-     * roll/pitch in Deg
+     * roll/pitch in Rad
      * @param roll
      * @param pitch
      */
-    public void updateData(int roll, int pitch) {
+    public void updateData(float roll, float pitch) {
         pitch *= -1;
         roll *= -1;
 
         // 50 deg for half an axis
-        int deg2Local = joystickRadius/50;
+        float deg2Local = (float) (joystickRadius/50.0);
 
-        xPosition = (int) (roll * deg2Local + centerX);
-        yPosition = (int) (pitch * deg2Local + centerY);
+        xPosition = (int) (Math.toDegrees(roll) * deg2Local + centerX);
+        yPosition = (int) (Math.toDegrees(pitch) * deg2Local + centerY);
 
         xPosition = ensureRange(xPosition, (int) (centerX - joystickRadius), (int) (centerX + joystickRadius));
         yPosition = ensureRange(yPosition, (int) (centerY - joystickRadius), (int) (centerY + joystickRadius));

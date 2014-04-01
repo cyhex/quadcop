@@ -52,8 +52,8 @@ public class OrientationActivity extends ActionBarActivity implements SensorEven
 
     private void updateGui() {
         if (gyroButton.isChecked()) {
-            int x = (int) Math.toDegrees(orientation[1] - orientationCenter[1]);
-            int y = (int) Math.toDegrees(orientation[2] - orientationCenter[2]);
+            float x = orientation[1] - orientationCenter[1];
+            float y = orientation[2] - orientationCenter[2];
             jc1.updateData(x, y);
         }
     }
