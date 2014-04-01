@@ -3,6 +3,9 @@ package com.cyhex.quadcontroller.main;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -16,6 +19,7 @@ public class MainActivity extends OrientationActivity{
     private TextView powerDisplay;
     private SeekBar yawBar;
     private TextView yawDisplay;
+    private Button gyroSetAxButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,7 @@ public class MainActivity extends OrientationActivity{
 
         setContentView(R.layout.activity_main);
         jc1 = (JoystickView) findViewById(R.id.jc1View);
+
 
         powerBar = (VerticalSeekBar) findViewById(R.id.powerBarView);
         powerDisplay = (TextView) findViewById(R.id.powerDisplay);
@@ -64,6 +69,24 @@ public class MainActivity extends OrientationActivity{
         });
 
         gyroButton = (ToggleButton) findViewById(R.id.aGyro);
+        gyroButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                setOrientationCenter();
+                if(b==false){
+                    jc1.updateData(0,0);
+                }
+            }
+        });
+
+        gyroSetAxButton = (Button) findViewById(R.id.aSetAx);
+        gyroSetAxButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setOrientationCenter();
+            }
+        });
+
 
     }
 

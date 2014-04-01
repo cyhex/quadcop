@@ -16,18 +16,20 @@
         android:layout_above="@+id/yawView" />
 
     <view
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         class="com.cyhex.quadcontroller.main.views.VerticalSeekBar"
         android:id="@+id/powerBarView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_gravity="right"
-        android:layout_marginRight="40dp"
         android:max="1024"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/powerDisplay"
-        android:indeterminate="false" />
+        android:indeterminate="false"
+        android:minWidth="60dp"
+        android:mirrorForRtl="true"
+        android:maxWidth="60dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,8 +61,7 @@
             android:id="@+id/aSetAx"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:onClick="setOrientationCenter" />
+            android:layout_alignParentStart="true" />
 
         <ToggleButton
             android:layout_width="wrap_content"

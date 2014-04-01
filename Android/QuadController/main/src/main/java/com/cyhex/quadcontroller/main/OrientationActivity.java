@@ -46,7 +46,7 @@ public class OrientationActivity extends ActionBarActivity implements SensorEven
 
     }
 
-    public void setOrientationCenter(View v) {
+    public void setOrientationCenter() {
         orientationCenter = orientation.clone();
     }
 
