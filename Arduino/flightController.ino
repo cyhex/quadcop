@@ -1,12 +1,8 @@
 
-#include "xxx.h"
-
-
 /**
 * Flight Controller 
 *
 */
-
 
 void setup(){
 
@@ -14,7 +10,5 @@ void setup(){
 
 
 void loop(){
-
-
 
 }
