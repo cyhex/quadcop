@@ -18,6 +18,7 @@ public class ConnectThread extends Thread {
 
 
     public ConnectThread(BluetoothDevice btDev) {
+
         this.btDev = btDev;
         // Standard SerialPortDev ID
         this.sUUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
@@ -51,12 +52,15 @@ public class ConnectThread extends Thread {
     public void write(byte[] bytes) {
         try {
             btOutStream.write(bytes);
-        } catch (IOException e) { }
+        } catch (IOException e) {
+        }
     }
-    public void cancel(){
+
+    public void cancel() {
         try {
             btSocket.close();
-        } catch (IOException e) { }
+        } catch (IOException e) {
+        }
     }
 
 }

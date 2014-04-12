@@ -1,6 +1,10 @@
 package com.cyhex.quadcontroller.main;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,8 +14,11 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.cyhex.quadcontroller.main.bluetooth.ConnectThread;
 import com.cyhex.quadcontroller.main.views.JoystickView;
 import com.cyhex.quadcontroller.main.views.VerticalSeekBar;
+
+import java.util.Set;
 
 public class MainActivity extends OrientationActivity{
 
@@ -20,10 +27,14 @@ public class MainActivity extends OrientationActivity{
     private SeekBar yawBar;
     private TextView yawDisplay;
     private Button gyroSetAxButton;
-
+    private ConnectThread bt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        bt = new ConnectThread(getBtDevice());
+        bt.start();
+
 
         setContentView(R.layout.activity_main);
         jc1 = (JoystickView) findViewById(R.id.jc1View);
@@ -111,5 +122,21 @@ public class MainActivity extends OrientationActivity{
         return super.onOptionsItemSelected(item);
     }
 
+    public BluetoothDevice getBtDevice(){
+        BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
+        if(!btAdapter.isEnabled()){
+            Intent enableBt = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBt, 0);
+        }
+        Set<BluetoothDevice> pairedDevs = btAdapter.getBondedDevices();
+        if(pairedDevs.size() > 0){
+            for (BluetoothDevice device : pairedDevs) {
+                if(device.getName().equals("JY-MCU")){
+                    return device;
+                }
+            }
+        }
+        return null;
+    }
 
 }
