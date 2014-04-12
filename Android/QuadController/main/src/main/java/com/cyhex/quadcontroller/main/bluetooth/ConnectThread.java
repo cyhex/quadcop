@@ -15,7 +15,7 @@ public class ConnectThread extends Thread {
     private final UUID sUUID;
     private InputStream btInStream;
     private OutputStream btOutStream;
-
+    private OnDataSend dataSendListener;
 
     public ConnectThread(BluetoothDevice btDev) {
 
@@ -46,7 +46,22 @@ public class ConnectThread extends Thread {
             }
             return;
         }
+        while (!interrupted()){
+            String data = dataSendListener.sendValue();
+            write(data.getBytes());
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {}
+        }
 
+    }
+
+    public void setDataSendListener(OnDataSend dataSendListener) {
+        this.dataSendListener = dataSendListener;
+    }
+
+    public static  interface OnDataSend{
+        public String sendValue();
     }
 
     public void write(byte[] bytes) {

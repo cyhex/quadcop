@@ -34,7 +34,12 @@ public class MainActivity extends OrientationActivity{
 
         bt = new ConnectThread(getBtDevice());
         bt.start();
-
+        bt.setDataSendListener( new ConnectThread.OnDataSend() {
+            @Override
+            public String sendValue() {
+                return "XOX";
+            }
+        });
 
         setContentView(R.layout.activity_main);
         jc1 = (JoystickView) findViewById(R.id.jc1View);
