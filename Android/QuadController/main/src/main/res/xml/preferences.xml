@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory>
+        <EditTextPreference
+            android:key="bt_dev"
+            android:title="BT Device Name"
+            android:summary="BT device to connect to"
+            android:defaultValue="JY-MCU"
+            android:inputType="number"/>
+
+        <EditTextPreference
+            android:key="tr_rate"
+            android:title="Transmit rate"
+            android:summary="Transmit rate in ms"
+            android:defaultValue="100"
+            android:numeric="integer"
+            android:inputType="number"/>
+
+    </PreferenceCategory>
+</PreferenceScreen>

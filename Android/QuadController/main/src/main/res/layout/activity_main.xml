@@ -74,8 +74,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/aLand"
             android:layout_alignStart="@+id/aLand"
-            android:layout_alignRight="@+id/aGyro"
-            android:layout_alignEnd="@+id/aGyro" />
+            android:layout_toLeftOf="@+id/aBt" />
 
         <ToggleButton
             android:layout_width="wrap_content"
@@ -140,6 +139,18 @@
             android:layout_alignStart="@+id/aGyro"
             android:layout_alignRight="@+id/apHeight"
             android:layout_alignEnd="@+id/apHeight" />
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New ToggleButton"
+            android:id="@+id/aBt"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:checked="false"
+            android:textOff="BT Off"
+            android:textOn="BT On" />
 
     </RelativeLayout>
 

@@ -1,5 +1,6 @@
 package com.cyhex.quadcontroller.main.bluetooth;
 
+import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 
@@ -17,6 +18,10 @@ public class ConnectThread extends Thread {
     private OutputStream btOutStream;
     private OnDataSend dataSendListener;
 
+    public static BluetoothAdapter getDefaultAdapter(){
+        return BluetoothAdapter.getDefaultAdapter();
+    }
+
     public ConnectThread(BluetoothDevice btDev) {
 
         this.btDev = btDev;
@@ -25,7 +30,7 @@ public class ConnectThread extends Thread {
 
         BluetoothSocket tmp = null;
         try {
-            tmp = btDev.createRfcommSocketToServiceRecord(sUUID);
+            tmp = this.btDev.createRfcommSocketToServiceRecord(sUUID);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -56,8 +61,10 @@ public class ConnectThread extends Thread {
 
     }
 
-    public void setDataSendListener(OnDataSend dataSendListener) {
+    public ConnectThread setDataSendListener(OnDataSend dataSendListener) {
         this.dataSendListener = dataSendListener;
+        return this;
+
     }
 
     public static  interface OnDataSend{

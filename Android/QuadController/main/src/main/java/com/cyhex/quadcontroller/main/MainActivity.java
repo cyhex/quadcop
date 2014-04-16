@@ -4,7 +4,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +11,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.cyhex.quadcontroller.main.bluetooth.ConnectThread;
@@ -20,28 +20,31 @@ import com.cyhex.quadcontroller.main.views.VerticalSeekBar;
 
 import java.util.Set;
 
-public class MainActivity extends OrientationActivity{
+public class MainActivity extends OrientationActivity {
 
+    private static final int REQUEST_ENABLE_BT = 1;
     private VerticalSeekBar powerBar;
     private TextView powerDisplay;
     private SeekBar yawBar;
     private TextView yawDisplay;
     private Button gyroSetAxButton;
     private ConnectThread bt;
+    private ToggleButton btButton;
+    private BluetoothAdapter btAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        bt = new ConnectThread(getBtDevice());
-        bt.start();
-        bt.setDataSendListener( new ConnectThread.OnDataSend() {
-            @Override
-            public String sendValue() {
-                return "XOX";
-            }
-        });
-
         setContentView(R.layout.activity_main);
+
+        btAdapter = ConnectThread.getDefaultAdapter();
+        if (!btAdapter.isEnabled()) {
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        }
+
+
         jc1 = (JoystickView) findViewById(R.id.jc1View);
 
 
@@ -89,8 +92,8 @@ public class MainActivity extends OrientationActivity{
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 setOrientationCenter();
-                if(!b){
-                    jc1.updateData(0,0);
+                if (!b) {
+                    jc1.updateData(0, 0);
                 }
             }
         });
@@ -100,6 +103,24 @@ public class MainActivity extends OrientationActivity{
             @Override
             public void onClick(View view) {
                 setOrientationCenter();
+            }
+        });
+
+        btButton = (ToggleButton) findViewById(R.id.aBt);
+        btButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    bt = new ConnectThread(getBtDevice());
+                    bt.setDataSendListener(new ConnectThread.OnDataSend() {
+                        @Override
+                        public String sendValue() {
+                            return "XOX";
+                        }
+                    }).start();
+                } else {
+                    bt.cancel();
+                }
             }
         });
 
@@ -122,21 +143,25 @@ public class MainActivity extends OrientationActivity{
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            return true;
+            Intent i = new Intent(this, SettingsActivity.class);
+            startActivity(i);
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public BluetoothDevice getBtDevice(){
-        BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
-        if(!btAdapter.isEnabled()){
-            Intent enableBt = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableBt, 0);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_ENABLE_BT && resultCode == RESULT_OK) {
+            Toast.makeText(getApplicationContext(), "BlueTooth is now Enabled", Toast.LENGTH_LONG).show();
         }
+    }
+
+
+    public BluetoothDevice getBtDevice() {
         Set<BluetoothDevice> pairedDevs = btAdapter.getBondedDevices();
-        if(pairedDevs.size() > 0){
+        if (pairedDevs.size() > 0) {
             for (BluetoothDevice device : pairedDevs) {
-                if(device.getName().equals("JY-MCU")){
+                if (device.getName().equals("JY-MCU")) {
                     return device;
                 }
             }
