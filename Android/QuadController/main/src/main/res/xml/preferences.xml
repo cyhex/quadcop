@@ -6,7 +6,7 @@
             android:title="BT Device Name"
             android:summary="BT device to connect to"
             android:defaultValue="JY-MCU"
-            android:inputType="number"/>
+            android:inputType="text"/>
 
         <EditTextPreference
             android:key="tr_rate"

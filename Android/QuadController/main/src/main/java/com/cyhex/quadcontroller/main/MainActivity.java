@@ -3,7 +3,9 @@ package com.cyhex.quadcontroller.main;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.cyhex.quadcontroller.main.bluetooth.ConnectThread;
+import com.cyhex.quadcontroller.main.bluetooth.Payload;
 import com.cyhex.quadcontroller.main.views.JoystickView;
 import com.cyhex.quadcontroller.main.views.VerticalSeekBar;
 
@@ -31,6 +34,7 @@ public class MainActivity extends OrientationActivity {
     private ConnectThread bt;
     private ToggleButton btButton;
     private BluetoothAdapter btAdapter;
+    private SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,17 +118,22 @@ public class MainActivity extends OrientationActivity {
                     bt = new ConnectThread(getBtDevice());
                     bt.setDataSendListener(new ConnectThread.OnDataSend() {
                         @Override
-                        public String sendValue() {
-                            return "XOX";
+                        public byte[] sendValue() {
+                            Payload payload = new Payload();
+                            return payload.toBytes();
                         }
-                    }).start();
+                    }, Integer.parseInt(sharedPref.getString("tr_rate", "100"))).start();
                 } else {
                     bt.cancel();
+                    try {
+                        bt.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });
-
-
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
     @Override
@@ -161,7 +170,7 @@ public class MainActivity extends OrientationActivity {
         Set<BluetoothDevice> pairedDevs = btAdapter.getBondedDevices();
         if (pairedDevs.size() > 0) {
             for (BluetoothDevice device : pairedDevs) {
-                if (device.getName().equals("JY-MCU")) {
+                if (device.getName().equals(sharedPref.getString("bt_dev", "JY-MCU"))) {
                     return device;
                 }
             }

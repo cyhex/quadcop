@@ -13,21 +13,17 @@ public class ConnectThread extends Thread {
 
     private final BluetoothSocket btSocket;
     private final BluetoothDevice btDev;
-    private final UUID sUUID;
+    // Standard SerialPortDev ID
+    private final UUID sUUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
+
     private InputStream btInStream;
     private OutputStream btOutStream;
     private OnDataSend dataSendListener;
-
-    public static BluetoothAdapter getDefaultAdapter(){
-        return BluetoothAdapter.getDefaultAdapter();
-    }
+    private int dataSendListenerSleep;
 
     public ConnectThread(BluetoothDevice btDev) {
 
         this.btDev = btDev;
-        // Standard SerialPortDev ID
-        this.sUUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
-
         BluetoothSocket tmp = null;
         try {
             tmp = this.btDev.createRfcommSocketToServiceRecord(sUUID);
@@ -35,7 +31,10 @@ public class ConnectThread extends Thread {
             e.printStackTrace();
         }
         btSocket = tmp;
+    }
 
+    public static BluetoothAdapter getDefaultAdapter() {
+        return BluetoothAdapter.getDefaultAdapter();
     }
 
     public void run() {
@@ -51,24 +50,22 @@ public class ConnectThread extends Thread {
             }
             return;
         }
-        while (!interrupted()){
-            String data = dataSendListener.sendValue();
-            write(data.getBytes());
+        while (!interrupted()) {
+            byte[] data = dataSendListener.sendValue();
+            write(data);
             try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {}
+                Thread.sleep(dataSendListenerSleep);
+            } catch (InterruptedException e) {
+            }
         }
 
     }
 
-    public ConnectThread setDataSendListener(OnDataSend dataSendListener) {
+    public ConnectThread setDataSendListener(OnDataSend dataSendListener, int sleep) {
+        dataSendListenerSleep = sleep;
         this.dataSendListener = dataSendListener;
         return this;
 
-    }
-
-    public static  interface OnDataSend{
-        public String sendValue();
     }
 
     public void write(byte[] bytes) {
@@ -83,6 +80,10 @@ public class ConnectThread extends Thread {
             btSocket.close();
         } catch (IOException e) {
         }
+    }
+
+    public static interface OnDataSend {
+        public byte[] sendValue();
     }
 
 }
