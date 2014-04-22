@@ -18,18 +18,30 @@ public class Payload {
         this.power = power;
     }
 
+    public Payload(int yaw, int pitch, int roll, int power) {
+        this.yaw = (short) yaw;
+        this.pitch = (short) pitch;
+        this.roll = (short) roll;
+        this.power = (short) power;
+    }
+
     public Payload() {
     }
 
     public byte[] toBytes() {
-        ByteBuffer buffer = ByteBuffer.allocate(2);
-        buffer.putShort(Integer.valueOf(-1024).shortValue());
+        ByteBuffer buffer = ByteBuffer.allocate((2*5));
+
+        // send starter
+        buffer.putShort(Integer.valueOf(32767).shortValue());
+
+        buffer.putShort(Integer.valueOf(yaw).shortValue());
+        buffer.putShort(Integer.valueOf(pitch).shortValue());
+        buffer.putShort(Integer.valueOf(roll).shortValue());
+        buffer.putShort(Integer.valueOf(power).shortValue());
+
+
 
         byte[] bytes = buffer.array();
-        for ( byte b : bytes){
-            Log.i("bytes", String.valueOf(b));
-        }
-
         return bytes;
     }
 

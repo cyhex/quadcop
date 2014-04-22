@@ -241,11 +241,11 @@ public class JoystickView extends View {
         }
     }
 
-    private int getYpos() {
+    public int getYpos() {
         return (int) ((yPosition - centerY) / joystickRadius * 1024);
     }
 
-    private int getXpos() {
+    public int getXpos() {
         return (int) ((xPosition - centerX) / joystickRadius * 1024);
     }
 

@@ -119,7 +119,7 @@ public class MainActivity extends OrientationActivity {
                     bt.setDataSendListener(new ConnectThread.OnDataSend() {
                         @Override
                         public byte[] sendValue() {
-                            Payload payload = new Payload();
+                            Payload payload = new Payload(yawBar.getProgress() - 1024, jc1.getYpos(), jc1.getXpos(), powerBar.getProgress());
                             return payload.toBytes();
                         }
                     }, Integer.parseInt(sharedPref.getString("tr_rate", "100"))).start();
