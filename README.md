@@ -6,13 +6,19 @@ Hardware list
 -------------
 
     2 x arduino nano 
-    1 x MPU 6050 (Accelerometer, Gyro, Compass)
+    1 x MPU 6050 - GY80 (Accelerometer, Gyro, Compass) 10DOF 9-axis Indicator Module L3G4200D ADXL345 HMC5883L BMP085
     1 x HC-SR04 (Unltrasonic rangefinder)
     1 x xxxx (Serial bluetooth breakout board)
     4 x brushless motors
     4 x ECS (brushless speed controllers)
     4 x plastic roters 
     1 x chasis with heatsink (for esc)
+
+
+Links
+-----
+
+    http://www.forkrobotics.com/2013/06/using-the-gy80-10dof-module-with-arduino/
 
 
 Software
