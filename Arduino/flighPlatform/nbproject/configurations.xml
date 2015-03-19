@@ -4,6 +4,8 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>helpers/ADXL345.h</itemPath>
+      <itemPath>helpers/PID.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -52,6 +54,10 @@
           <commandLine>${FLAGS_LINKER}</commandLine>
         </linkerTool>
       </compileType>
+      <item path="helpers/ADXL345.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="helpers/PID.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -75,6 +81,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="helpers/ADXL345.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="helpers/PID.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>

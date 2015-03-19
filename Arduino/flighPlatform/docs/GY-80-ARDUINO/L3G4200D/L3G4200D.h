@@ -1,7 +1,7 @@
 #ifndef L3G4200D_h
 #define L3G4200D_h
 
-#include <Arduino.h> // for byte data type
+#include <WProgram.h> // for byte data type
 
 // register addresses
 
@@ -36,26 +36,27 @@
 #define L3G4200D_INT1_THS_ZL   0x37
 #define L3G4200D_INT1_DURATION 0x38
 
-class L3G4200D {
-public:
+class L3G4200D
+{
+	public:
+		typedef struct vector
+		{
+			float x, y, z;
+		} vector;
+		
+		vector g; // gyro angular velocity readings
 
-    typedef struct vector {
-        float x, y, z;
-    } vector;
-
-    vector g; // gyro angular velocity readings
-
-    void enableDefault(void);
-
-    void writeReg(byte reg, byte value);
-    byte readReg(byte reg);
-
-    void read(void);
-
-    // vector functions
-    static void vector_cross(const vector *a, const vector *b, vector *out);
-    static float vector_dot(const vector *a, const vector *b);
-    static void vector_normalize(vector *a);
+		void enableDefault(void);
+		
+		void writeReg(byte reg, byte value);
+		byte readReg(byte reg);
+		
+		void read(void);
+		
+		// vector functions
+		static void vector_cross(const vector *a, const vector *b, vector *out);
+		static float vector_dot(const vector *a,const vector *b);
+		static void vector_normalize(vector *a);
 };
 
 #endif
