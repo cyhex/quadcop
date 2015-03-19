@@ -15,6 +15,12 @@ Hardware list
     1 x chasis with heatsink (for esc)
 
 
+Links
+-----
+
+    http://www.forkrobotics.com/2013/06/using-the-gy80-10dof-module-with-arduino/
+
+
 Software
 --------
 
