@@ -6,7 +6,7 @@ Hardware list
 -------------
 
     2 x arduino nano 
-    1 x MPU 6050 (Accelerometer, Gyro, Compass) 10DOF 9-axis Indicator Module L3G4200D ADXL345 HMC5883L BMP085
+    1 x MPU 6050 - GY80 (Accelerometer, Gyro, Compass) 10DOF 9-axis Indicator Module L3G4200D ADXL345 HMC5883L BMP085
     1 x HC-SR04 (Unltrasonic rangefinder)
     1 x xxxx (Serial bluetooth breakout board)
     4 x brushless motors
