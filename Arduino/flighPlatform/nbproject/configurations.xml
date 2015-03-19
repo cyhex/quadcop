@@ -5,7 +5,9 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>helpers/ADXL345.h</itemPath>
+      <itemPath>helpers/ADXL345xxxx.h</itemPath>
       <itemPath>helpers/PID.h</itemPath>
+      <itemPath>helpers/PIDx.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -14,6 +16,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>helpers/ADXL345.cpp</itemPath>
+      <itemPath>helpers/PID.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -54,9 +58,17 @@
           <commandLine>${FLAGS_LINKER}</commandLine>
         </linkerTool>
       </compileType>
+      <item path="helpers/ADXL345.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="helpers/ADXL345.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="helpers/ADXL345xxxx.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="helpers/PID.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="helpers/PID.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="helpers/PIDx.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -81,9 +93,17 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="helpers/ADXL345.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="helpers/ADXL345.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="helpers/ADXL345xxxx.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="helpers/PID.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="helpers/PID.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="helpers/PIDx.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

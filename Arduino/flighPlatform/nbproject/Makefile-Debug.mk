@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/helpers/ADXL345.o \
+	${OBJECTDIR}/helpers/PID.o \
 	${OBJECTDIR}/main.o
 
 
@@ -61,6 +63,16 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/flighplatform: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	avr-gcc -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/flighplatform ${OBJECTFILES} ${LDLIBSOPTIONS} ${FLAGS_LINKER}
+
+${OBJECTDIR}/helpers/ADXL345.o: helpers/ADXL345.cpp 
+	${MKDIR} -p ${OBJECTDIR}/helpers
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/ADXL345.o helpers/ADXL345.cpp
+
+${OBJECTDIR}/helpers/PID.o: helpers/PID.cpp 
+	${MKDIR} -p ${OBJECTDIR}/helpers
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/PID.o helpers/PID.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

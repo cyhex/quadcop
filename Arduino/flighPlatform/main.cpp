@@ -3,24 +3,22 @@
 #include "helpers/ADXL345.h"
 #include "helpers/L3G4200D.h"
 #include "helpers/PID.h"
-
 extern HardwareSerial Serial;
 
 L3G4200D gyro;
 ADXL345 accel;
-
 PID pid;
 
 void setup() {
     Serial.begin(9600);
     Wire.begin();
-    //accel.enableDefault();
+    accel.enableDefault();
     gyro.enableDefault();
-    pid.run(0.0, 0.00);
+    pid.run(0.0, 0.0);
 }
 
 void loop() {
-    //accel.read();
+    accel.read();
     gyro.read();
     Serial.print("gyro ");
     Serial.print("X: ");
@@ -29,14 +27,14 @@ void loop() {
     Serial.print((int) gyro.g.y);
     Serial.print(" Z: ");
     Serial.println((int) gyro.g.z);
-    
+
     Serial.print("accel ");
     Serial.print("X: ");
-    //Serial.print((int) accel.g.x);
+    Serial.print(accel.g.x);
     Serial.print(" Y: ");
-    //Serial.print((int) accel.g.y);
+    Serial.print(accel.g.y);
     Serial.print(" Z: ");
-    //Serial.println((int) accel.g.z);
+    Serial.println(accel.g.z);
 
     delay(500);
 }
