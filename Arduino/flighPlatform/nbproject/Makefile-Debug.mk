@@ -21,7 +21,7 @@ FC=gfortran
 AS=avr-as
 
 # Macros
-CND_PLATFORM=Arduino_1.6.1-Linux-x86
+CND_PLATFORM=arduino161-Linux-x86
 CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -35,11 +35,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/helpers/ADXL345.o \
-	${OBJECTDIR}/helpers/HMC5883.o \
-	${OBJECTDIR}/helpers/L3G4200D.o \
-	${OBJECTDIR}/helpers/PID.o \
-	${OBJECTDIR}/helpers/Tilt.o \
+	${OBJECTDIR}/libs/ADXL345.o \
+	${OBJECTDIR}/libs/HMC5883.o \
+	${OBJECTDIR}/libs/L3G4200D.o \
+	${OBJECTDIR}/libs/PID.o \
+	${OBJECTDIR}/libs/Tilt.o \
 	${OBJECTDIR}/main.o
 
 
@@ -67,30 +67,30 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/flighplatform: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	avr-gcc -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/flighplatform ${OBJECTFILES} ${LDLIBSOPTIONS} ${FLAGS_LINKER}
 
-${OBJECTDIR}/helpers/ADXL345.o: helpers/ADXL345.cpp 
-	${MKDIR} -p ${OBJECTDIR}/helpers
+${OBJECTDIR}/libs/ADXL345.o: libs/ADXL345.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libs
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/ADXL345.o helpers/ADXL345.cpp
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/ADXL345.o libs/ADXL345.cpp
 
-${OBJECTDIR}/helpers/HMC5883.o: helpers/HMC5883.cpp 
-	${MKDIR} -p ${OBJECTDIR}/helpers
+${OBJECTDIR}/libs/HMC5883.o: libs/HMC5883.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libs
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/HMC5883.o helpers/HMC5883.cpp
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/HMC5883.o libs/HMC5883.cpp
 
-${OBJECTDIR}/helpers/L3G4200D.o: helpers/L3G4200D.cpp 
-	${MKDIR} -p ${OBJECTDIR}/helpers
+${OBJECTDIR}/libs/L3G4200D.o: libs/L3G4200D.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libs
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/L3G4200D.o helpers/L3G4200D.cpp
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/L3G4200D.o libs/L3G4200D.cpp
 
-${OBJECTDIR}/helpers/PID.o: helpers/PID.cpp 
-	${MKDIR} -p ${OBJECTDIR}/helpers
+${OBJECTDIR}/libs/PID.o: libs/PID.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libs
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/PID.o helpers/PID.cpp
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/PID.o libs/PID.cpp
 
-${OBJECTDIR}/helpers/Tilt.o: helpers/Tilt.cpp 
-	${MKDIR} -p ${OBJECTDIR}/helpers
+${OBJECTDIR}/libs/Tilt.o: libs/Tilt.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libs
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/Tilt.o helpers/Tilt.cpp
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/Tilt.o libs/Tilt.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

@@ -44,6 +44,11 @@
 REGISTERS
 -----------------------------------------------------------------------*/
 #define ADXL345_MG2G_MULTIPLIER (0.004) // 4mg per lsb
+
+#define ADXL345_SENSITIVITY_MULTIPLIER (0.00390625) //  1/256  sensor is sensetivity is 256 per G
+
+#define SENSORS_GRAVITY_STANDARD (9.80665F)  // Earth's gravity in m/s^2 
+
 /*=========================================================================*/
 
 /* Used with register 0x2C (ADXL345_REG_BW_RATE) to set bandwidth */
@@ -82,7 +87,8 @@ public:
         float x, y, z;
     } vector;
 
-    vector g;
+    vector pos; // relative position
+    vector acc; // acceleration in m/s
 
     ADXL345();
     void enableDefault(void);

@@ -36,11 +36,14 @@
 #define L3G4200D_INT1_THS_ZL   0x37
 #define L3G4200D_INT1_DURATION 0x38
 
+#define L3G4200D_SENSITIVITY 250.0
+
+
 class L3G4200D {
 public:
 
     typedef struct vector {
-        float x, y, z;
+        long x, y, z;
     } vector;
 
     vector g; // gyro angular velocity readings

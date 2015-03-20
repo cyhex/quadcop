@@ -4,11 +4,11 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>helpers/ADXL345.h</itemPath>
-      <itemPath>helpers/HMC5883.h</itemPath>
-      <itemPath>helpers/L3G4200D.h</itemPath>
-      <itemPath>helpers/PID.h</itemPath>
-      <itemPath>helpers/Tilt.h</itemPath>
+      <itemPath>libs/ADXL345.h</itemPath>
+      <itemPath>libs/HMC5883.h</itemPath>
+      <itemPath>libs/L3G4200D.h</itemPath>
+      <itemPath>libs/PID.h</itemPath>
+      <itemPath>libs/Tilt.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -17,11 +17,11 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>helpers/ADXL345.cpp</itemPath>
-      <itemPath>helpers/HMC5883.cpp</itemPath>
-      <itemPath>helpers/L3G4200D.cpp</itemPath>
-      <itemPath>helpers/PID.cpp</itemPath>
-      <itemPath>helpers/Tilt.cpp</itemPath>
+      <itemPath>libs/ADXL345.cpp</itemPath>
+      <itemPath>libs/HMC5883.cpp</itemPath>
+      <itemPath>libs/L3G4200D.cpp</itemPath>
+      <itemPath>libs/PID.cpp</itemPath>
+      <itemPath>libs/Tilt.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -38,13 +38,13 @@
     <itemPath>.gitignore</itemPath>
   </logicalFolder>
   <sourceRootList>
-    <Elem>helpers</Elem>
+    <Elem>libs</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>Arduino_1.6.1|GNU</compilerSet>
+        <compilerSet>arduino161|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -68,25 +68,25 @@
       </compileType>
       <item path=".gitignore" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="helpers/ADXL345.cpp" ex="false" tool="1" flavor2="0">
+      <item path="libs/ADXL345.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="helpers/ADXL345.h" ex="false" tool="3" flavor2="0">
+      <item path="libs/ADXL345.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="helpers/HMC5883.cpp" ex="false" tool="1" flavor2="0">
+      <item path="libs/HMC5883.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="helpers/HMC5883.h" ex="false" tool="3" flavor2="0">
+      <item path="libs/HMC5883.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="helpers/L3G4200D.cpp" ex="false" tool="1" flavor2="0">
+      <item path="libs/L3G4200D.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="helpers/L3G4200D.h" ex="false" tool="3" flavor2="0">
+      <item path="libs/L3G4200D.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="helpers/PID.cpp" ex="false" tool="1" flavor2="0">
+      <item path="libs/PID.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="helpers/PID.h" ex="false" tool="3" flavor2="0">
+      <item path="libs/PID.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="helpers/Tilt.cpp" ex="false" tool="1" flavor2="0">
+      <item path="libs/Tilt.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="helpers/Tilt.h" ex="false" tool="3" flavor2="0">
+      <item path="libs/Tilt.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -113,25 +113,25 @@
       </compileType>
       <item path=".gitignore" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="helpers/ADXL345.cpp" ex="false" tool="1" flavor2="0">
+      <item path="libs/ADXL345.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="helpers/ADXL345.h" ex="false" tool="3" flavor2="0">
+      <item path="libs/ADXL345.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="helpers/HMC5883.cpp" ex="false" tool="1" flavor2="0">
+      <item path="libs/HMC5883.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="helpers/HMC5883.h" ex="false" tool="3" flavor2="0">
+      <item path="libs/HMC5883.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="helpers/L3G4200D.cpp" ex="false" tool="1" flavor2="0">
+      <item path="libs/L3G4200D.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="helpers/L3G4200D.h" ex="false" tool="3" flavor2="0">
+      <item path="libs/L3G4200D.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="helpers/PID.cpp" ex="false" tool="1" flavor2="0">
+      <item path="libs/PID.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="helpers/PID.h" ex="false" tool="3" flavor2="0">
+      <item path="libs/PID.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="helpers/Tilt.cpp" ex="false" tool="1" flavor2="0">
+      <item path="libs/Tilt.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="helpers/Tilt.h" ex="false" tool="3" flavor2="0">
+      <item path="libs/Tilt.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

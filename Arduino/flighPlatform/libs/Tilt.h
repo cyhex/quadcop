@@ -15,16 +15,20 @@
 
 class Tilt {
 public:
+    // tilt in degrees
+    // x - 0 = balanced, -90 = nose up, 90 nose down
+    // y - 0 balanced, -90 = left, 90 right (x nose direction)
+    // z - not used
     typedef struct vector {
         float x, y, z;
     } vector;
 
     vector tilt;
     int heading;
+    unsigned long lastTime;
     
     Tilt();
-    void calculate(ADXL345::vector vectorAccel, L3G4200D::vector vectorGyro, 
-    HMC5883::vector vectorMag);
+    void calculate(ADXL345::vector vectorAccel, L3G4200D::vector vectorGyro);
 private:
 
 };

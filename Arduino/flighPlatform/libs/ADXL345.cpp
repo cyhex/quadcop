@@ -11,17 +11,17 @@ void ADXL345::enableDefault() {
     Wire.beginTransmission(ADXAddress);
     Wire.write(ADXL345_REG_POWER_CTL);
     Wire.write(8); //measuring enable
-    
+
     // set data range
     range_t range = ADXL345_RANGE_2_G;
     Wire.write(ADXL345_REG_DATA_FORMAT);
     Wire.write(range);
-    
+
     // set data rate
     dataRate_t dataRate = ADXL345_DATARATE_0_10_HZ;
     Wire.write(ADXL345_REG_BW_RATE);
     Wire.write(dataRate);
-    
+
     Wire.endTransmission();
 }
 
@@ -68,7 +68,13 @@ void ADXL345::read() {
         Z1 = Z1 << 8;
         Z_out = Z0 + Z1;
     }
-    g.x = X_out / 256.0;
-    g.y = Y_out / 256.0;
-    g.z = Z_out / 256.0;
+    pos.x = X_out * ADXL345_SENSITIVITY_MULTIPLIER;
+    pos.y = Y_out * ADXL345_SENSITIVITY_MULTIPLIER;
+    pos.z = Z_out * ADXL345_SENSITIVITY_MULTIPLIER;
+    
+    // acceleration in m/s^2 
+    acc.x = X_out * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
+    acc.y = Y_out * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
+    acc.z = Z_out * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
+    
 }

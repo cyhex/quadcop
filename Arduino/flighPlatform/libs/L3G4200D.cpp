@@ -64,6 +64,13 @@ void L3G4200D::read()
 	g.x = xha << 8 | xla;
 	g.y = yha << 8 | yla;
 	g.z = zha << 8 | zla;
+        // convert to degree/second
+        
+        // 15 bit to sensitivity (default 250 degree/second)
+        g.x = g.x / 32767.0 * L3G4200D_SENSITIVITY;
+        g.y = g.y / 32767.0 * L3G4200D_SENSITIVITY;
+        g.z = g.z / 32767.0 * L3G4200D_SENSITIVITY;
+        
 }
 
 void L3G4200D::vector_cross(const vector *a,const vector *b, vector *out)
