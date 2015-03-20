@@ -7,11 +7,22 @@ ADXL345::ADXL345() {
 }
 
 void ADXL345::enableDefault() {
-    // enable to measute g data
+    // enable to measure g data
     Wire.beginTransmission(ADXAddress);
-    Wire.write(Register_2D);
+    Wire.write(ADXL345_REG_POWER_CTL);
     Wire.write(8); //measuring enable
-    Wire.endTransmission(); // stop transmitting
+    
+    // set data range
+    range_t range = ADXL345_RANGE_2_G;
+    Wire.write(ADXL345_REG_DATA_FORMAT);
+    Wire.write(range);
+    
+    // set data rate
+    dataRate_t dataRate = ADXL345_DATARATE_0_10_HZ;
+    Wire.write(ADXL345_REG_BW_RATE);
+    Wire.write(dataRate);
+    
+    Wire.endTransmission();
 }
 
 void ADXL345::read() {
@@ -22,8 +33,8 @@ void ADXL345::read() {
 
     //--------------X
     Wire.beginTransmission(ADXAddress); // transmit to device
-    Wire.write(Register_X0);
-    Wire.write(Register_X1);
+    Wire.write(ADXL345_REG_DATAX0);
+    Wire.write(ADXL345_REG_DATAX1);
     Wire.endTransmission();
     Wire.requestFrom(ADXAddress, 2);
     if (Wire.available() <= 2) {
@@ -35,8 +46,8 @@ void ADXL345::read() {
 
     //------------------Y
     Wire.beginTransmission(ADXAddress); // transmit to device
-    Wire.write(Register_Y0);
-    Wire.write(Register_Y1);
+    Wire.write(ADXL345_REG_DATAY0);
+    Wire.write(ADXL345_REG_DATAY1);
     Wire.endTransmission();
     Wire.requestFrom(ADXAddress, 2);
     if (Wire.available() <= 2) {
@@ -47,8 +58,8 @@ void ADXL345::read() {
     }
     //------------------Z
     Wire.beginTransmission(ADXAddress); // transmit to device
-    Wire.write(Register_Z0);
-    Wire.write(Register_Z1);
+    Wire.write(ADXL345_REG_DATAZ0);
+    Wire.write(ADXL345_REG_DATAZ1);
     Wire.endTransmission();
     Wire.requestFrom(ADXAddress, 2);
     if (Wire.available() <= 2) {
