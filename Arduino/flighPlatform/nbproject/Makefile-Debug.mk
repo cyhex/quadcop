@@ -36,8 +36,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/helpers/ADXL345.o \
+	${OBJECTDIR}/helpers/HMC5883.o \
 	${OBJECTDIR}/helpers/L3G4200D.o \
 	${OBJECTDIR}/helpers/PID.o \
+	${OBJECTDIR}/helpers/Tilt.o \
 	${OBJECTDIR}/main.o
 
 
@@ -70,6 +72,11 @@ ${OBJECTDIR}/helpers/ADXL345.o: helpers/ADXL345.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/ADXL345.o helpers/ADXL345.cpp
 
+${OBJECTDIR}/helpers/HMC5883.o: helpers/HMC5883.cpp 
+	${MKDIR} -p ${OBJECTDIR}/helpers
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/HMC5883.o helpers/HMC5883.cpp
+
 ${OBJECTDIR}/helpers/L3G4200D.o: helpers/L3G4200D.cpp 
 	${MKDIR} -p ${OBJECTDIR}/helpers
 	${RM} "$@.d"
@@ -79,6 +86,11 @@ ${OBJECTDIR}/helpers/PID.o: helpers/PID.cpp
 	${MKDIR} -p ${OBJECTDIR}/helpers
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/PID.o helpers/PID.cpp
+
+${OBJECTDIR}/helpers/Tilt.o: helpers/Tilt.cpp 
+	${MKDIR} -p ${OBJECTDIR}/helpers
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/Tilt.o helpers/Tilt.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
