@@ -6,7 +6,7 @@
 
 # Macros
 TOP=`pwd`
-CND_PLATFORM=Arduino106-Linux-x86
+CND_PLATFORM=Arduino_1.6.1-Linux-x86
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build

@@ -21,7 +21,7 @@ FC=gfortran
 AS=avr-as
 
 # Macros
-CND_PLATFORM=Arduino106-Linux-x86
+CND_PLATFORM=Arduino_1.6.1-Linux-x86
 CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/helpers/ADXL345.o \
+	${OBJECTDIR}/helpers/L3G4200D.o \
 	${OBJECTDIR}/helpers/PID.o \
 	${OBJECTDIR}/main.o
 
@@ -68,6 +69,11 @@ ${OBJECTDIR}/helpers/ADXL345.o: helpers/ADXL345.cpp
 	${MKDIR} -p ${OBJECTDIR}/helpers
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/ADXL345.o helpers/ADXL345.cpp
+
+${OBJECTDIR}/helpers/L3G4200D.o: helpers/L3G4200D.cpp 
+	${MKDIR} -p ${OBJECTDIR}/helpers
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/helpers/L3G4200D.o helpers/L3G4200D.cpp
 
 ${OBJECTDIR}/helpers/PID.o: helpers/PID.cpp 
 	${MKDIR} -p ${OBJECTDIR}/helpers

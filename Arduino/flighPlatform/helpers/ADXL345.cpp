@@ -16,9 +16,9 @@ void ADXL345::enableDefault() {
 
 void ADXL345::read() {
 
-    int X0, X1, X_out;
-    int Y0, Y1, Y_out;
-    int Z1, Z0, Z_out;
+    int X0, X1, X_out = 0;
+    int Y0, Y1, Y_out = 0;
+    int Z1, Z0, Z_out = 0;
 
     //--------------X
     Wire.beginTransmission(ADXAddress); // transmit to device
