@@ -14,3 +14,5 @@ Gyro + Acceleromer
 
 http://www.instructables.com/id/Guide-to-gyro-and-accelerometer-with-Arduino-inclu/
 
+http://www.josephdattilo.com/translate-virtuabotix-accelerometer-forces-degrees-arduino-versalino/
+
