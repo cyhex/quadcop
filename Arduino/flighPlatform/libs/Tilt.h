@@ -24,11 +24,11 @@ public:
     } vector;
 
     vector tilt;
-    int heading;
     unsigned long lastTime;
     
     Tilt();
-    void calculate(ADXL345::vector vectorAccel, L3G4200D::vector vectorGyro);
+    void calculate(ADXL345::vector vectorAccel, L3G4200D::vector vectorGyro, 
+    HMC5883::vector vectorMag);
 private:
 
 };

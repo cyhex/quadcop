@@ -9,6 +9,7 @@ extern HardwareSerial Serial;
 
 L3G4200D gyro;
 ADXL345 accel;
+HMC5883 mag;
 Tilt tilt;
 
 PID pid;
@@ -20,6 +21,7 @@ void setup() {
     Wire.begin();
     accel.enableDefault();
     gyro.enableDefault();
+    mag.enableDefault();
     pid.run(0.0, 0.0);
 }
 /**
@@ -36,7 +38,7 @@ void printOut() {
     Serial.print(tilt.tilt.x);
 
     Serial.print(" y: ");
-    Serial.println(tilt.tilt.y);
+    Serial.print(tilt.tilt.y);
     
     //    Serial.print("gyr ");
     //    Serial.print("X: ");
@@ -66,7 +68,8 @@ void printOut() {
 void loop() {
     accel.read();
     gyro.read();
-    tilt.calculate(accel.pos, gyro.g);
+    mag.read();
+    tilt.calculate(accel.pos, gyro.g, mag.g);
     printOut();
 }
 

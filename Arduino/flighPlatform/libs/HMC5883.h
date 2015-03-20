@@ -12,7 +12,7 @@
 
 class HMC5883 {
 public:
-    
+    // heading in Radians
     typedef struct vector {
         float x, y, z;
     } vector;
