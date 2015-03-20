@@ -15,6 +15,10 @@ https://github.com/jrowberg/i2cdevlib/blob/master/Arduino/HMC5883L/Examples/HMC5
 
 Gyro + Acceleromer 
 
+
+http://www.instructables.com/id/Accelerometer-Gyro-Tutorial/step1/The-Accelerometer/
+
+
 http://www.instructables.com/id/Guide-to-gyro-and-accelerometer-with-Arduino-inclu/
 
 http://www.josephdattilo.com/translate-virtuabotix-accelerometer-forces-degrees-arduino-versalino/
