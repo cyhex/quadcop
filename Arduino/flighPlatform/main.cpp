@@ -40,19 +40,6 @@ void printOut() {
 
     Serial.print(" roll: ");
     Serial.print(pos.roll);
-    
-    Serial.print(" heading: ");
-    Serial.println(pos.heading);
-    
-    mag.read();
-    Serial.print("mag x: ");
-    Serial.print(mag.g.x );
-    
-    Serial.print(" y: ");
-    Serial.print(mag.g.y );
-    
-    Serial.print(" z: ");
-    Serial.println(mag.g.z);
 }
 
 void loop() {
