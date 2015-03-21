@@ -31,6 +31,7 @@ void HMC5883::read() {
         y = Wire.read() << 8; //Y msb
         y |= Wire.read(); //Y lsb
     }
+
     g.x = x;
     g.y = y;
     g.z = z;

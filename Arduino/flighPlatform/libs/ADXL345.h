@@ -93,7 +93,10 @@ public:
     ADXL345();
     void enableDefault(void);
     void read(void);
-
+     // vector functions
+    static void vector_cross(const vector *a, const vector *b, vector *out);
+    static float vector_dot(const vector *a, const vector *b);
+    static void vector_normalize(vector *a);
 };
 
 #endif	/* ADXL345_H */

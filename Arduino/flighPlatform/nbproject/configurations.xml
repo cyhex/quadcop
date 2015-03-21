@@ -8,7 +8,7 @@
       <itemPath>libs/HMC5883.h</itemPath>
       <itemPath>libs/L3G4200D.h</itemPath>
       <itemPath>libs/PID.h</itemPath>
-      <itemPath>libs/Tilt.h</itemPath>
+      <itemPath>libs/Postion.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -21,7 +21,7 @@
       <itemPath>libs/HMC5883.cpp</itemPath>
       <itemPath>libs/L3G4200D.cpp</itemPath>
       <itemPath>libs/PID.cpp</itemPath>
-      <itemPath>libs/Tilt.cpp</itemPath>
+      <itemPath>libs/Postion.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -84,9 +84,9 @@
       </item>
       <item path="libs/PID.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="libs/Tilt.cpp" ex="false" tool="1" flavor2="0">
+      <item path="libs/Postion.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="libs/Tilt.h" ex="false" tool="3" flavor2="0">
+      <item path="libs/Postion.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -129,9 +129,9 @@
       </item>
       <item path="libs/PID.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="libs/Tilt.cpp" ex="false" tool="1" flavor2="0">
+      <item path="libs/Postion.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="libs/Tilt.h" ex="false" tool="3" flavor2="0">
+      <item path="libs/Postion.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

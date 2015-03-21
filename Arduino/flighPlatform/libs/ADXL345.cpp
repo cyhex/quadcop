@@ -1,5 +1,6 @@
 #include "ADXL345.h"
 #include <Wire.h>
+#include <math.h>
 
 #define ADXAddress (0xA7 >> 1)
 
@@ -71,10 +72,27 @@ void ADXL345::read() {
     pos.x = X_out * ADXL345_SENSITIVITY_MULTIPLIER;
     pos.y = Y_out * ADXL345_SENSITIVITY_MULTIPLIER;
     pos.z = Z_out * ADXL345_SENSITIVITY_MULTIPLIER;
-    
+
     // acceleration in m/s^2 
     acc.x = X_out * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
     acc.y = Y_out * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
     acc.z = Z_out * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
-    
+
+}
+
+void ADXL345::vector_cross(const vector *a, const vector *b, vector *out) {
+    out->x = a->y * b->z - a->z * b->y;
+    out->y = a->z * b->x - a->x * b->z;
+    out->z = a->x * b->y - a->y * b->x;
+}
+
+float ADXL345::vector_dot(const vector *a, const vector *b) {
+    return a->x * b->x + a->y * b->y + a->z * b->z;
+}
+
+void ADXL345::vector_normalize(vector *a) {
+    float mag = sqrt(vector_dot(a, a));
+    a->x /= mag;
+    a->y /= mag;
+    a->z /= mag;
 }

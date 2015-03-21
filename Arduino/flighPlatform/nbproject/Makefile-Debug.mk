@@ -39,7 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/libs/HMC5883.o \
 	${OBJECTDIR}/libs/L3G4200D.o \
 	${OBJECTDIR}/libs/PID.o \
-	${OBJECTDIR}/libs/Tilt.o \
+	${OBJECTDIR}/libs/Postion.o \
 	${OBJECTDIR}/main.o
 
 
@@ -87,10 +87,10 @@ ${OBJECTDIR}/libs/PID.o: libs/PID.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/PID.o libs/PID.cpp
 
-${OBJECTDIR}/libs/Tilt.o: libs/Tilt.cpp 
+${OBJECTDIR}/libs/Postion.o: libs/Postion.cpp 
 	${MKDIR} -p ${OBJECTDIR}/libs
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/Tilt.o libs/Tilt.cpp
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/Postion.o libs/Postion.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
