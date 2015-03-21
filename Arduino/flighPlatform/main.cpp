@@ -39,7 +39,7 @@ void printOut() {
     Serial.print(pos.pitch);
 
     Serial.print(" roll: ");
-    Serial.print(pos.roll);
+    Serial.println(pos.roll);
 }
 
 void loop() {
