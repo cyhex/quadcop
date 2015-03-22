@@ -1,4 +1,5 @@
 #include "Postion.h"
+#include "HCSRC04.h"
 #include <Arduino.h>
 #include <math.h>
 
@@ -6,17 +7,16 @@ Postion::Postion() {
     lastTime = millis();
 }
 
-void Postion::calculate(ADXL345 acc, L3G4200D gyro, HMC5883 mag) {
-    acc.read();
-    gyro.read();
-    mag.read();
+void Postion::calculate(ADXL345 acc, L3G4200D gyro, HMC5883 mag, HCSRC04 ping) {
 
     // calculate accelerometers pitch and roll in deg
     float apitch = atan2(acc.pos.y, acc.pos.z) * RAD_TO_DEG;
+
     float aroll = atan2(acc.pos.x, acc.pos.z) * RAD_TO_DEG;
 
     // calculate delta time since last run in seconds
     float dt = (millis() - lastTime) / 1000.0;
+    lastTime = millis();
 
     // calculate gyro change pitch and roll (in degrees)
     float gpitch = gyro.g.x * dt;
@@ -43,7 +43,11 @@ void Postion::calculate(ADXL345 acc, L3G4200D gyro, HMC5883 mag) {
         heading = 360 + heading;
     }
 
+    // ground distance 
+    height = ping.distance;
+    //    float s = ping.distance;
+    //    float a = pitch / RAD_TO_DEG;
+    //    float b = roll / RAD_TO_DEG;
+    //    distance = s/sqrt(1+tan(a)*tan(a) + tan(b)*tan(b));
 
-
-    lastTime = millis();
 }

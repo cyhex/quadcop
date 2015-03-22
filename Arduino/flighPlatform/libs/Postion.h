@@ -11,8 +11,9 @@
 #include "ADXL345.h"
 #include "L3G4200D.h"
 #include "HMC5883.h"
+#include "HCSRC04.h"
 
-#define POSITION_GYR_RATIO 0.98
+#define POSITION_GYR_RATIO 0.5
 
 class Postion {
 public:
@@ -22,11 +23,13 @@ public:
     float roll;
     //Degrees: 0 = North (x nose direction)
     float heading;
-
+    // distance to ground in CM
+    double height;
+    
     unsigned long lastTime;
 
     Postion();
-    void calculate(ADXL345 acc, L3G4200D gyro, HMC5883 mag);
+    void calculate(ADXL345 acc, L3G4200D gyro, HMC5883 mag, HCSRC04 ping);
 };
 
 

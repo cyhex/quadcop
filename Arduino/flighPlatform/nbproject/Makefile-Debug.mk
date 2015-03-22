@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/libs/ADXL345.o \
+	${OBJECTDIR}/libs/HCSRC04.o \
 	${OBJECTDIR}/libs/HMC5883.o \
 	${OBJECTDIR}/libs/L3G4200D.o \
 	${OBJECTDIR}/libs/PID.o \
@@ -71,6 +72,11 @@ ${OBJECTDIR}/libs/ADXL345.o: libs/ADXL345.cpp
 	${MKDIR} -p ${OBJECTDIR}/libs
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/ADXL345.o libs/ADXL345.cpp
+
+${OBJECTDIR}/libs/HCSRC04.o: libs/HCSRC04.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libs
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/HCSRC04.o libs/HCSRC04.cpp
 
 ${OBJECTDIR}/libs/HMC5883.o: libs/HMC5883.cpp 
 	${MKDIR} -p ${OBJECTDIR}/libs

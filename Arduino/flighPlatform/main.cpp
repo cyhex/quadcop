@@ -5,16 +5,19 @@
 #include "libs/PID.h"
 #include "libs/HMC5883.h"
 #include "libs/Postion.h"
+#include "libs/HCSRC04.h"
 extern HardwareSerial Serial;
 
 L3G4200D gyro;
 ADXL345 accel;
 HMC5883 mag;
 Postion pos;
-
+HCSRC04 ping;
 PID pid;
 
 unsigned long lastPrint = 0;
+unsigned long lastCycle= 0;
+unsigned long cycleCount = 0;
 
 void setup() {
     Serial.begin(9600);
@@ -22,40 +25,47 @@ void setup() {
     accel.enableDefault();
     gyro.enableDefault();
     mag.enableDefault();
+    ping.enableDefault();
     pid.run(0.0, 0.0);
-    Serial.println("mag callibration");
-    mag.calibrate();
-    Serial.println("mag callibration done");
+//    Serial.println("mag callibration");
+//    mag.calibrate();
+//    Serial.println("mag callibration done");
 }
 
 /**
- * print only once in 100 ms 
+ * print only once in 300 ms 
  */
 void printOut() {
 
-    if ((millis() - lastPrint) < 300) {
-        return;
-    }
     lastPrint = millis();
 
-//    Serial.print("pitch: ");
-//    Serial.print(pos.pitch);
-//
-//    Serial.print(" roll: ");
-//    Serial.print(pos.roll);
+    Serial.print("pitch: ");
+    Serial.print(pos.pitch);
 
-    Serial.print(" heading: ");
-    Serial.println(pos.heading);
-    //mag.read();
-    //Serial.print(mag.g.x);
-    //Serial.print(" ");
-    //Serial.println(mag.g.y);
-    //Serial.print(" : ");
-    //Serial.println(mag.g.z);
+    Serial.print(" roll: ");
+    Serial.print(pos.roll);
+    
+    Serial.print(" height: ");
+    Serial.print(pos.height);
+    
+    Serial.print(" run x/sec");
+    Serial.println(cycleCount);
+    
 }
 
 void loop() {
-    pos.calculate(accel, gyro, mag);
-    printOut();
+    accel.read();
+    gyro.read();
+    mag.read();
+    ping.read();
+    
+    pos.calculate(accel, gyro, mag, ping);
+    
+    if(millis() - lastCycle >= 1000 ){
+        printOut();
+        cycleCount = 0;
+        lastCycle = millis();
+    }
+    cycleCount ++;
 }
 
