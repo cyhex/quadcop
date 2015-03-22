@@ -36,6 +36,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
     <itemPath>.gitignore</itemPath>
+    <itemPath>plot/calibrated_scale_1.txt</itemPath>
+    <itemPath>plot/mag_callibrated.txt</itemPath>
+    <itemPath>plot/mag_scaled.txt</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>libs</Elem>
@@ -90,6 +93,12 @@
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="plot/calibrated_scale_1.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="plot/mag_callibrated.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="plot/mag_scaled.txt" ex="false" tool="3" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -134,6 +143,12 @@
       <item path="libs/Postion.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="plot/calibrated_scale_1.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="plot/mag_callibrated.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="plot/mag_scaled.txt" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

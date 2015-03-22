@@ -23,8 +23,11 @@ void setup() {
     gyro.enableDefault();
     mag.enableDefault();
     pid.run(0.0, 0.0);
-    Serial.println("Calibrate compass: tilt and move for 30 sec");
+    Serial.println("mag callibration");
+    mag.calibrate();
+    Serial.println("mag callibration done");
 }
+
 /**
  * print only once in 100 ms 
  */
@@ -34,12 +37,21 @@ void printOut() {
         return;
     }
     lastPrint = millis();
-    
-    Serial.print("pitch: ");
-    Serial.print(pos.pitch);
 
-    Serial.print(" roll: ");
-    Serial.println(pos.roll);
+//    Serial.print("pitch: ");
+//    Serial.print(pos.pitch);
+//
+//    Serial.print(" roll: ");
+//    Serial.print(pos.roll);
+
+    Serial.print(" heading: ");
+    Serial.println(pos.heading);
+    //mag.read();
+    //Serial.print(mag.g.x);
+    //Serial.print(" ");
+    //Serial.println(mag.g.y);
+    //Serial.print(" : ");
+    //Serial.println(mag.g.z);
 }
 
 void loop() {

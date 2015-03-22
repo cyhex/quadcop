@@ -28,5 +28,22 @@ void Postion::calculate(ADXL345 acc, L3G4200D gyro, HMC5883 mag) {
     // calculate roll angle in degrees
     roll = POSITION_GYR_RATIO * (roll + groll) + (1 - POSITION_GYR_RATIO) * aroll;
 
+
+    // calculate heading
+    // http://blog.solutions-cubed.com/lsm303-compass-tilt-compensation/
+    acc.vector_normalize(&acc.pos);
+    float mPitch = asin(-acc.pos.x);
+    float mRoll = asin(acc.pos.y / cos(mPitch));
+
+    float magxcomp = mag.g.x * cos(mPitch) + mag.g.z * sin(mPitch);
+    float magycomp = mag.g.x * sin(mRoll) * sin(mPitch) + mag.g.y * cos(mRoll) - mag.g.z * sin(mRoll) * cos(mPitch);
+
+    heading = atan2(magycomp, magxcomp) * RAD_TO_DEG + 90;
+    if (heading < 0) {
+        heading = 360 + heading;
+    }
+
+
+
     lastTime = millis();
 }
