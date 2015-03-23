@@ -26,7 +26,6 @@ void setup() {
     gyro.enableDefault();
     mag.enableDefault();
     ping.enableDefault();
-    pid.run(0.0, 0.0);
 //    Serial.println("mag callibration");
 //    mag.calibrate();
 //    Serial.println("mag callibration done");

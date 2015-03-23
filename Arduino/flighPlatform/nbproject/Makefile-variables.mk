@@ -7,13 +7,13 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=arduino161-Linux-x86
-CND_ARTIFACT_DIR_Debug=dist/Debug/arduino161-Linux-x86
+CND_PLATFORM_Debug=Arduino_1.6.1-Linux-x86
+CND_ARTIFACT_DIR_Debug=dist/Debug/Arduino_1.6.1-Linux-x86
 CND_ARTIFACT_NAME_Debug=flighplatform
-CND_ARTIFACT_PATH_Debug=dist/Debug/arduino161-Linux-x86/flighplatform
-CND_PACKAGE_DIR_Debug=dist/Debug/arduino161-Linux-x86/package
+CND_ARTIFACT_PATH_Debug=dist/Debug/Arduino_1.6.1-Linux-x86/flighplatform
+CND_PACKAGE_DIR_Debug=dist/Debug/Arduino_1.6.1-Linux-x86/package
 CND_PACKAGE_NAME_Debug=flighplatform.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/arduino161-Linux-x86/package/flighplatform.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Arduino_1.6.1-Linux-x86/package/flighplatform.tar
 # Release configuration
 CND_PLATFORM_Release=Arduino-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Arduino-Windows
