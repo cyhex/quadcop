@@ -35,11 +35,12 @@ void HMC5883::read() {
         z |= Wire.read(); //Z lsb
         y = Wire.read() << 8; //Y msb
         y |= Wire.read(); //Y lsb
+        g.x = (x - c.offsetx) * HMC5883_SCALE;
+        g.y = (y - c.offsety) * HMC5883_SCALE;
+        g.z = (z - c.offsetz) * HMC5883_SCALE;
     }
 
-    g.x = (x - c.offsetx) * HMC5883_SCALE;
-    g.y = (y - c.offsety) * HMC5883_SCALE;
-    g.z = (z - c.offsetz) * HMC5883_SCALE;
+
 }
 
 void HMC5883::calibrate() {
